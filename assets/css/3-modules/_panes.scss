@@ -1,0 +1,441 @@
+.panes {
+  margin-top: 95px;
+  display: table;
+  width: 100%;
+  text-align: center;
+  height: 400px;
+
+  @include page-width {
+    margin-top: 50px;
+    height: 370px;
+  }
+
+  @include tablet-sm {
+    margin-top: 25px;
+    height: 315px;
+  }
+
+  @include phone-l {
+    height: 270px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 55px;
+    line-height: 1;
+    margin: 0;
+    font-weight: normal;
+
+    @include page-width {
+      font-size: 48px;
+    }
+
+    @include tablet-sm {
+      font-size: 40px;
+    }
+  }
+
+  .logo {
+    cursor: pointer;
+    top: 0;
+    position: relative;
+
+    @include page-width {
+      max-height: 350px;
+    }
+
+    @include tablet-sm {
+      max-height: 300px;
+    }
+
+    @include phone-l {
+      max-height: 250px;
+    }
+  }
+}
+/* END PANES */
+
+.pane {
+  position: absolute;
+  transition: all 0.9s;
+  opacity: 1;
+  width: 240px;
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 55px;
+    line-height: 1;
+    margin: 0;
+    font-weight: normal;
+
+    &--blue {
+      color: $blue;
+    }
+
+    &--pink {
+      color: $pink
+    }
+
+    @include phone-l {
+      font-size: 33px;
+    }
+  }
+
+  @include phone-l {
+    width: 50% !important;
+    float: left !important;
+    position: relative;
+  }
+}
+
+/* BEGIN PANE-LEFT */
+.pane-left {
+  color: $blue;
+  left: calc(50% - 204px);
+
+  @include page-width {
+    left: calc(50% - 197px);
+  }
+
+  @include tablet-sm {
+    left: calc(50% - 186px);
+  }
+
+  @include phone-l {
+    text-align: right;
+    left: auto !important;
+
+    .logo {
+      right: 2px;
+    }
+  }
+
+  h2 {
+    display: none;
+  }
+}
+
+/* BEGIN PANE-LEFT-WRAP */
+.pane-left-wrap {
+  position: absolute;
+  left: 240px;
+
+  @include page-width {
+    left: 330px;
+  }
+
+  @include tablet-xl {
+    width: 100%;
+    left: 230px;
+  }
+
+  @include tablet-sm {
+    left: 210px;
+  }
+
+  @include phone-l {
+    position: relative;
+    left: auto;
+    display: none;
+  }
+
+  .secondary-nav {
+    text-align: left;
+    float: left;
+
+    @include tablet-xl {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: $blue;
+    }
+
+    li.active:after,
+    a:hover:after {
+      margin-left: 10px;
+      color: $blue;
+      content: '>';
+      display: inline-block;
+      @include tablet-xl {
+        content: '';
+        margin: 0;
+      }
+    }
+
+    @include tablet-xl {
+      li.active a {
+        color: $blue-dark;
+      }
+    }
+
+    @include tablet-xl {
+      li.active:after {
+        display: none;
+      }
+    }
+
+    li.active a:hover:after {
+      display: none;
+    }
+  }
+
+  .inner-wrap {
+    display: none;
+    float: left;
+    width: 760px;
+    height: calc(100vh - 190px);
+    overflow-y: scroll;
+    padding-right: 15px;
+
+    @include tablet-xl {
+      float: none;
+      height: 285px;
+      width: 100%;
+    }
+
+    @include tablet-sm {
+      height: 230px;
+    }
+  }
+  /* END PANE-LEFT-WRAP */
+
+}
+/* END PANE-LEFT */
+
+/* BEGIN PANE-RIGHT */
+.pane-right {
+  color: $pink;
+  right: calc(50% - 203px);
+
+  @include page-width {
+    right: calc(50% - 197px);
+  }
+
+  @include tablet-sm {
+    right: calc(50% - 186px);
+  }
+
+  @include phone-l {
+    text-align: left;
+    right: auto !important;
+  }
+
+  a {
+    color: $pink;
+
+    &:hover:after {
+      display: inline-block;
+      margin-left: 10px;
+      content: '>';
+      @include tablet-xl {
+        content: '';
+        margin: 0;
+      }
+    }
+  }
+
+  h2 {
+    display: none;
+  }
+}
+
+/* BEGIN PANE-RIGHT-WRAP */
+.pane-right-wrap {
+  position: absolute;
+  right: 240px;
+
+  @include page-width {
+    right: 330px;
+  }
+
+  @include tablet-xl {
+    right: 230px;
+    width: calc(100% - 253px);
+  }
+
+  @include tablet-sm {
+    width: 100%;
+    right: 210px;
+  }
+
+  @include phone-l {
+    position: relative;
+    right: auto;
+    display: none;
+  }
+
+  .secondary-nav {
+    text-align: right;
+    float: right;
+
+    @include tablet-xl {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    @include tablet-xl {
+      li {
+        float: right;
+
+        &:not(:first-child) {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    li.active:before,
+    a:hover:before {
+      margin-right: 10px;
+      color: $pink;
+      content: '<';
+      display: inline-block;
+
+      @include tablet-xl {
+        content: '';
+        margin: 0;
+      }
+    }
+
+    li.active a:hover:before {
+      display: none;
+    }
+
+    a {
+      color: $pink;
+    }
+
+    @include tablet-xl {
+      li.active a {
+        color: $pink-dark;
+      }
+    }
+  }
+
+  .inner-wrap {
+    float: left;
+    display: none;
+    width: 665px;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+    padding-right: 17px;
+
+    @include tablet-xl {
+      float: none;
+      height: 285px;
+      width: 100%;
+    }
+
+    @include tablet-sm {
+      height: 230px;
+    }
+  }
+
+}
+/* BEGIN PANE-RIGHT-WRAP */
+@include tablet-xl {
+
+  #categories-gallery {
+    li a {
+      color: $blue;
+
+      &:hover {
+        color: $blue-dark;
+      }
+    }
+
+    li.active a {
+      color: $blue-dark;
+    }
+  }
+
+  #categories-videos {
+    li a {
+      color: $pink;
+
+      &:hover {
+        color: $pink-dark;
+      }
+    }
+
+    li.active a {
+      color: $pink-dark;
+    }
+  }
+
+}
+
+
+/* BEGIN LEFT-OPEN */
+.left-open {
+
+  .pane-right {
+    opacity: 0;
+  }
+
+}
+/* END LEFT-OPEN */
+
+/* BEGIN RIGHT-OPEN */
+.right-open {
+
+  .pane-left {
+    opacity: 0;
+  }
+
+}
+/* END RIGHT-OPEN */
+
+/* BEGIN BOTH-OPEN */
+.both-open {
+
+  .pane-left,
+  .pane-right {
+    opacity: 1;
+  }
+
+  .pane-left-wrap,
+  .pane-right-wrap {
+    display: none;
+  }
+
+  .primary-nav .js-form {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+  }
+
+}
+/* END BOTH-OPEN */
+
+/* BEGIN LOGO-SIGN */
+.logo-sign {
+  display: inline-block;
+  position: relative;
+  left: 63px;
+
+  @include page-width {
+    max-width: 300px;
+    left: 49px;
+  }
+
+  @include phone-l {
+    max-width: 230px;
+    left: 38px;
+  }
+}
+/* END LOGO-SIGN */
+
+// hide scrollbar
+@include min-page-width {
+  .inner-wrap {
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+    overflow: -moz-scrollbars-vertical;
+  }
+
+  .inner-wrap::-webkit-scrollbar {
+    display: none;  // Safari and Chrome
+  }
+}

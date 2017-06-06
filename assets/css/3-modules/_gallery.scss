@@ -1,0 +1,55 @@
+.gallery {
+  list-style-type: none;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    float: left;
+    margin-left: 27px;
+    margin-bottom: 27px;
+
+    a {
+      display: block;
+
+      img {
+        max-height: 265px;
+        max-width: 320px;
+
+        @include tablet-sm {
+          max-height: 160px;
+          max-width: 160px;
+        }
+
+        @include phone-l {
+          max-width: 100%;
+        }
+      }
+    }
+
+    @include phone-l {
+      float: none;
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.videos {
+  list-style-type: none;
+
+  li {
+    display: table;
+    width: 100%;
+    margin-bottom: 25px;
+
+    iframe {
+      width: 80%;
+      float: left;
+      height: 290px;
+
+      @include page-width {
+        width: 100%;
+      }
+    }
+  }
+}

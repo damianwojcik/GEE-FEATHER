@@ -1,0 +1,175 @@
+form {
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+input,
+.ninja-forms-field,
+.nf-form-content input:not([type='button']), .nf-form-content textarea, .nf-form-content .list-select-wrap .nf-field-element > div {
+  background-color: $gray;
+  color: #FFF;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 18px;
+  box-shadow: 0;
+}
+
+textarea {
+  background-color: $gray;
+  resize: vertical;
+  border: 0;
+  color: #FFF;
+  outline: 0;
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  min-height: 195px;
+
+  @include page-width {
+    min-height: 175px;
+  }
+}
+
+.btn-submit {
+  background-image: url('assets/img/send.png');
+  width: 81px;
+  padding: 0;
+  height: 92px;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  transition: 0.6s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  @include tablet-xl {
+    width: 70px;
+    height: 80px;
+  }
+}
+
+.form {
+  width: 600px;
+  left: 390px;
+  text-align: left;
+  display: none;
+  position: absolute;
+
+  @include tablet-sm {
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 460px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .form-group {
+    float: left;
+    width: calc(100% - 174px);
+
+    @include tablet-xl {
+      width: calc(100% - 140px);
+    }
+  }
+
+  .btn-wrapper {
+    padding-left: 50px;
+    padding-top: 20px;
+    float: left;
+
+  }
+}
+
+.form-wrapper {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  left: 0;
+  top: 0;
+
+  .btn-close {
+    color: #FFF;
+    font-size: 30px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    outline: none;
+    background-color: transparent;
+    padding: 20px;
+    z-index: 99;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .form {
+    top: 120px;
+    font-size: 12px;
+    z-index: 99;
+
+    .form-group {
+      width: calc(100% - 110px);
+    }
+
+    textarea {
+      min-height: 125px;
+    }
+
+    .btn-wrapper {
+      padding-left: 25px;
+
+      .btn-submit {
+        width: 60px;
+        height: 70px;
+      }
+    }
+  }
+}
+
+.form-visible .form-wrapper {
+  display: block;
+}
+
+/* BEGIN NINJA-FORMS */
+.nf-form-fields-required,
+.nf-element nf-field-hp,
+.nf-field-label,
+#nf-field-hp-3 {
+  display: none !important;
+}
+
+.nf-form-layout .btn-wrapper {
+  position: absolute;
+  right: 30px !important;
+  top: 10px !important;
+
+  .btn-submit {
+    text-indent: -9999px;
+    display: block !important;
+  }
+}
+
+.nf-fail.nf-error input,
+.nf-fail.nf-error textarea {
+  border: 1px solid red;
+}
+
+.nf-error-msg {
+  display: none;
+}
+
+.nf-response-msg {
+  text-align: center;
+  margin-bottom: 10px;
+  color: green;
+}
+/* END NINJA-FORMS */

@@ -1,0 +1,50 @@
+/* BEGIN LATOUT */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1380px;
+  position: relative;
+  margin: auto;
+  padding: 20px 0;
+  display: table;
+
+  @include page-width {
+    width: 100%;
+    padding: 20px 30px;
+  }
+
+  @include tablet-sm {
+    padding: 20px;
+  }
+}
+
+.row {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+
+.row-logo {
+  text-align: center;
+}
+
+.container-mobile {
+  display: none;
+  text-align: center;
+
+  @include phone-l {
+    display: table;
+
+    .inner-wrap {
+      height: 300px;
+      overflow-y: scroll;
+    }
+  }
+
+  .secondary-nav li {
+    float: none;
+  }
+}
+/* END LATOUT */

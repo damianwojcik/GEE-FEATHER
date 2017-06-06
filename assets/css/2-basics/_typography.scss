@@ -1,0 +1,20 @@
+/* BEGIN TYPOGRAPHY */
+strong {
+	font-weight: 700;
+}
+
+p {
+	margin-bottom: 0;
+	line-height: 1.4;
+
+	br {
+		content: " ";
+		line-height: 32px;
+	}
+}
+
+.offscreen {
+	left: -1000em;
+	position: absolute;
+}
+/* BEGIN TYPOGRAPHY */
