@@ -1,3 +1,13 @@
+/*
+
+Theme Name: GEE & FEATHER
+Theme URI: www.damianwojcik.it
+Description: GEE & FEATHER theme by damianwojcik.it
+Version: 1.0
+Author: www.damianwojcik.it
+Author URI: www.damianwojcik.it
+
+*/
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -665,7 +675,7 @@ body.loaded #preloader {
 /* BEGIN PRIMARY-NAV */
 .primary-nav {
   display: table;
-  z-index: 9999; }
+  z-index: 999; }
   @media (max-width: 768px) {
     .primary-nav {
       margin: 0 auto; } }
@@ -689,16 +699,16 @@ body.loaded #preloader {
           -webkit-transform: scale(1.1);
                   transform: scale(1.1); }
         .primary-nav ul li a img {
-          max-height: 70px;
-          max-width: 70px; }
-          @media (max-width: 1380px) {
-            .primary-nav ul li a img {
-              max-width: 60px;
-              max-height: 60px; } }
-          @media (max-width: 1024px) {
+          max-height: 40px;
+          max-width: 40px; }
+          @media (min-width: 480px) {
             .primary-nav ul li a img {
               max-width: 50px;
               max-height: 50px; } }
+          @media (min-width: 1380px) {
+            .primary-nav ul li a img {
+              max-width: 70px;
+              max-height: 70px; } }
 
 /* END PRIMARY-NAV */
 /* BEGIN SECONDARY-NAV */
@@ -786,7 +796,18 @@ body.loaded #preloader {
   position: absolute;
   transition: all 0.9s;
   opacity: 1;
-  width: 240px; }
+  width: 166px; }
+  @media (max-width: 1380px) {
+    .pane {
+      width: 154px; } }
+  @media (max-width: 768px) {
+    .pane {
+      width: 132px; } }
+  @media (max-width: 480px) {
+    .pane {
+      width: 50% !important;
+      float: left !important;
+      position: relative; } }
   .pane__heading {
     text-transform: uppercase;
     font-size: 55px;
@@ -800,22 +821,17 @@ body.loaded #preloader {
     @media (max-width: 480px) {
       .pane__heading {
         font-size: 33px; } }
-  @media (max-width: 480px) {
-    .pane {
-      width: 50% !important;
-      float: left !important;
-      position: relative; } }
 
 /* BEGIN PANE-LEFT */
 .pane-left {
   color: #3abfed;
-  left: calc(50% - 204px); }
+  left: calc(50% - 166px); }
   @media (max-width: 1380px) {
     .pane-left {
-      left: calc(50% - 197px); } }
+      left: calc(50% - 153px); } }
   @media (max-width: 768px) {
     .pane-left {
-      left: calc(50% - 186px); } }
+      left: calc(50% - 132px); } }
   @media (max-width: 480px) {
     .pane-left {
       text-align: right;
@@ -828,7 +844,7 @@ body.loaded #preloader {
 /* BEGIN PANE-LEFT-WRAP */
 .pane-left-wrap {
   position: absolute;
-  left: 240px;
+  left: 205px;
   /* END PANE-LEFT-WRAP */ }
   @media (max-width: 1380px) {
     .pane-left-wrap {
@@ -839,7 +855,7 @@ body.loaded #preloader {
       left: 230px; } }
   @media (max-width: 768px) {
     .pane-left-wrap {
-      left: 210px; } }
+      left: 180px; } }
   @media (max-width: 480px) {
     .pane-left-wrap {
       position: relative;
@@ -893,13 +909,13 @@ body.loaded #preloader {
 /* BEGIN PANE-RIGHT */
 .pane-right {
   color: #e34592;
-  right: calc(50% - 203px); }
+  right: calc(50% - 166px); }
   @media (max-width: 1380px) {
     .pane-right {
-      right: calc(50% - 197px); } }
+      right: calc(50% - 153px); } }
   @media (max-width: 768px) {
     .pane-right {
-      right: calc(50% - 186px); } }
+      right: calc(50% - 132px); } }
   @media (max-width: 480px) {
     .pane-right {
       text-align: left;
@@ -920,18 +936,17 @@ body.loaded #preloader {
 /* BEGIN PANE-RIGHT-WRAP */
 .pane-right-wrap {
   position: absolute;
-  right: 240px; }
+  right: 205px; }
   @media (max-width: 1380px) {
     .pane-right-wrap {
       right: 330px; } }
   @media (max-width: 1024px) {
     .pane-right-wrap {
       right: 230px;
-      width: calc(100% - 253px); } }
+      width: 100%; } }
   @media (max-width: 768px) {
     .pane-right-wrap {
-      width: 100%;
-      right: 210px; } }
+      right: 180px; } }
   @media (max-width: 480px) {
     .pane-right-wrap {
       position: relative;

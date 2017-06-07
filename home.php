@@ -34,6 +34,11 @@
 
             <ul>
                 <li>
+                    <a href="#" class="js-home">
+                        <img src="<?= THEME_URL; ?>/assets/img/snapchat.png" alt="Home">
+                    </a>
+                </li>
+                <li>
                     <a href="<?php echo $facebook_link; ?>" target="_blank">
                         <img src="<?= THEME_URL; ?>/assets/img/fb.png" alt="Facebook">
                     </a>
@@ -141,7 +146,7 @@
                             <?php while (have_rows('movie', $videos->ID)): the_row(); ?>
 
                                 <li class="<?php echo slugify($videos->post_title); ?>">
-                                    <iframe src="<?php the_sub_field('link'); ?>"></iframe>
+                                    <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" src="<?php the_sub_field('link'); ?>"></iframe>
                                 </li>
 
                             <?php endwhile; ?>

@@ -45,7 +45,8 @@ jQuery(document).ready(function () {
         submitBtn = jQuery('.submit-wrap input'),
         containerMobile = jQuery('.container-mobile'),
         formWrapper = jQuery('.form-wrapper'),
-        btnCloseForm = jQuery('.form-wrapper .btn-close');
+        btnCloseForm = jQuery('.form-wrapper .btn-close'),
+        btnHome = jQuery('.js-home');
 
     $wind.on('resize', function(){
         windW = $wind.width(),
@@ -61,6 +62,62 @@ jQuery(document).ready(function () {
     checkWidth();
     openPanes();
     loader();
+
+    btnHome.on('click', function (e) {
+
+        e.preventDefault();
+
+        body.removeClass('both-open');
+        body.removeClass('left-open');
+        body.removeClass('right-open');
+
+        setTimeout(function () {
+            leftContent.fadeOut(300);
+            rightContent.fadeOut(300);
+            form.fadeOut(300);
+            leftNav.find('li:nth-child(5)').fadeOut(100);
+            rightNav.find('li:nth-child(5)').fadeOut(100);
+        }, 500);
+
+        setTimeout(function () {
+            leftNav.find('li:nth-child(4)').fadeOut(200);
+            rightNav.find('li:nth-child(4)').fadeOut(200);
+        }, 500);
+
+        setTimeout(function () {
+            leftNav.find('li:nth-child(3)').fadeOut(200);
+            rightNav.find('li:nth-child(3)').fadeOut(200);
+        }, 700);
+
+        setTimeout(function () {
+            leftNav.find('li:nth-child(2)').fadeOut(200);
+            rightNav.find('li:nth-child(2)').fadeOut(200);
+        }, 800);
+
+        setTimeout(function () {
+            leftNav.find('li:first-child').fadeOut(200);
+            rightNav.find('li:first-child').fadeOut(200);
+        }, 1100);
+
+        setTimeout(function () {
+            leftPane.find('h2').fadeOut(400);
+            rightPane.find('h2').fadeOut(400);
+        }, 1100);
+
+        setTimeout(function () {
+            leftPane.css('left', 'calc(50% - ' + moveDistance + 'px)');
+            rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
+            rightPane.fadeIn("slow");
+            leftPane.fadeIn("slow");
+            logoSign.fadeIn("slow");
+        }, 1300);
+
+        setTimeout(function () {
+            leftPane.css({"pointer-events": "auto"});
+            rightPane.css({"pointer-events": "auto"});
+        }, 1500);
+
+    });
 
     function loader() {
         jQuery(window).on('load', function() {
@@ -127,20 +184,20 @@ jQuery(document).ready(function () {
 
         if(windW > 1024 && windW < 1380) {
 
-            moveDistance = 197;
+            moveDistance = 153;
             movedPos = 60;
-            moveBothPos = 60;
+            moveBothPos = 90;
 
-            leftWrap.css('left', 285);
+            leftWrap.css('left', 265);
             leftNav.css('width', 300);
             leftContent.css('width', panesW - 530 + 'px');
 
-            rightWrap.css('right', 290);
+            rightWrap.css('right', 260);
             rightNav.css('width', 400);
-            rightContent.css('width', panesW - 650 + 'px');
+            rightContent.css('width', panesW - 630 + 'px');
 
-            form.css('width', panesW - 500 + 'px');
-            form.css('left', leftPane.width() + 40);
+            form.css('width', panesW - 470 + 'px');
+            form.css('left', leftPane.width() + 115);
 
             if(body.hasClass('left-open')) {
                 leftPane.css('left', movedPos);
@@ -157,14 +214,14 @@ jQuery(document).ready(function () {
 
         } else if(windW > 768 && windW < 1024) {
 
-            moveDistance = 197;
-            movedPos = 0;
-            moveBothPos = 0;
-            leftWrap.css('left', 225);
-            rightWrap.css('right', 225);
+            moveDistance = 153;
+            movedPos = 20;
+            moveBothPos = 40;
+            leftWrap.css('left', 205);
+            rightWrap.css('right', 205);
 
             form.css('width', panesW - 400 + 'px');
-            form.css('left', leftPane.width() - 10);
+            form.css('left', leftPane.width() + 75);
 
             leftContent.css('width', '100%');
             rightContent.css('width', '100%');
@@ -172,8 +229,8 @@ jQuery(document).ready(function () {
             leftNav.css('width', '100%');
             rightNav.css('width', '100%');
 
-            leftWrap.css('width', panesW - 240 + 'px');
-            rightWrap.css('width', panesW - 240 + 'px');
+            leftWrap.css('width', panesW - 210 + 'px');
+            rightWrap.css('width', panesW - 210 + 'px');
 
             if(body.hasClass('left-open')) {
                 leftPane.css('left', movedPos);
@@ -190,8 +247,12 @@ jQuery(document).ready(function () {
 
         } else if(windW > 480 && windW <768) {
 
-            moveDistance = 186;
-            movedPos = 0;
+            moveDistance = 132;
+            movedPos = 20;
+
+            containerMobile.fadeOut(300);
+            body.removeClass('left-mobile-open');
+            body.removeClass('right-mobile-open');
 
             leftContent.css('width', '100%');
             rightContent.css('width', '100%');
@@ -206,14 +267,14 @@ jQuery(document).ready(function () {
                 logoSign.fadeIn(300);
             }
 
-            leftWrap.css('width', panesW - leftPane.width() + 30);
-            rightWrap.css('width', panesW - rightPane.width() + 30);
+            leftWrap.css('width', panesW - leftPane.width() - 20);
+            rightWrap.css('width', panesW - rightPane.width() - 20);
 
         } else {
 
-            moveDistance = 204;
+            moveDistance = 166;
             movedPos = 0;
-            moveBothPos = 150;
+            moveBothPos = 180;
 
         }
     }

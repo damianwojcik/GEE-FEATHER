@@ -1,0 +1,24 @@
+{
+  "name": "GEEandFEATHER",
+  "author": "damianwojcik.it",
+  "version": "1.0.0",
+  "description": "GEE & FEATHER",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-sass": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-clean-css": "*",
+    "gulp-uglify": "*",
+    "gulp-rename": "*",
+    "gulp-concat": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

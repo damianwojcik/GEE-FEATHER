@@ -104,6 +104,12 @@ $iphone: 320px;
   }
 }
 
+@mixin phone-l-min {
+  @media (min-width: #{$phone-l}) {
+    @content;
+  }
+}
+
 @mixin phone-m {
   @media (max-width: #{$phone-m}) {
     @content;
@@ -118,6 +124,13 @@ $iphone: 320px;
 
 @mixin iphone {
   @media (max-width: #{$phone-s}) {
+    @content;
+  }
+}
+
+
+@mixin iphone-min {
+  @media (min-width: #{$iphone}) {
     @content;
   }
 }

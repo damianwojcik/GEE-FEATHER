@@ -18,7 +18,7 @@ add_action( 'nf_display_enqueue_scripts', 'wpgood_nf_display_enqueue_scripts');
 function enqueue_styles() {
     // load styles
     wp_enqueue_style( 'muli_font', 'https://fonts.googleapis.com/css?family=Muli&amp;subset=latin-ext', '', NULL);
-    wp_enqueue_style( 'site_styles', THEME_URL .'/style.css', '', NULL);
+    wp_enqueue_style( 'site_styles', THEME_URL .'/main.min.css', '', NULL);
 }
 
 

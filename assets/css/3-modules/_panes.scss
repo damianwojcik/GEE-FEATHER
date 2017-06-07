@@ -59,7 +59,21 @@
   position: absolute;
   transition: all 0.9s;
   opacity: 1;
-  width: 240px;
+  width: 166px;
+
+  @include page-width {
+    width: 154px;
+  }
+
+  @include tablet-sm {
+    width: 132px;
+  }
+
+  @include phone-l {
+    width: 50% !important;
+    float: left !important;
+    position: relative;
+  }
 
   &__heading {
     text-transform: uppercase;
@@ -81,24 +95,19 @@
     }
   }
 
-  @include phone-l {
-    width: 50% !important;
-    float: left !important;
-    position: relative;
-  }
 }
 
 /* BEGIN PANE-LEFT */
 .pane-left {
   color: $blue;
-  left: calc(50% - 204px);
+  left: calc(50% - 166px);
 
   @include page-width {
-    left: calc(50% - 197px);
+    left: calc(50% - 153px);
   }
 
   @include tablet-sm {
-    left: calc(50% - 186px);
+    left: calc(50% - 132px);
   }
 
   @include phone-l {
@@ -118,7 +127,7 @@
 /* BEGIN PANE-LEFT-WRAP */
 .pane-left-wrap {
   position: absolute;
-  left: 240px;
+  left: 205px;
 
   @include page-width {
     left: 330px;
@@ -130,7 +139,7 @@
   }
 
   @include tablet-sm {
-    left: 210px;
+    left: 180px;
   }
 
   @include phone-l {
@@ -207,14 +216,14 @@
 /* BEGIN PANE-RIGHT */
 .pane-right {
   color: $pink;
-  right: calc(50% - 203px);
+  right: calc(50% - 166px);
 
   @include page-width {
-    right: calc(50% - 197px);
+    right: calc(50% - 153px);
   }
 
   @include tablet-sm {
-    right: calc(50% - 186px);
+    right: calc(50% - 132px);
   }
 
   @include phone-l {
@@ -244,7 +253,7 @@
 /* BEGIN PANE-RIGHT-WRAP */
 .pane-right-wrap {
   position: absolute;
-  right: 240px;
+  right: 205px;
 
   @include page-width {
     right: 330px;
@@ -252,12 +261,12 @@
 
   @include tablet-xl {
     right: 230px;
-    width: calc(100% - 253px);
+    //width: calc(100% - 253px);
+    width: 100%;
   }
 
   @include tablet-sm {
-    width: 100%;
-    right: 210px;
+    right: 180px;
   }
 
   @include phone-l {

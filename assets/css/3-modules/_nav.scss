@@ -1,7 +1,7 @@
 /* BEGIN PRIMARY-NAV */
 .primary-nav {
   display: table;
-  z-index: 9999;
+  z-index: 999;
 
   @include tablet-sm {
     margin: 0 auto;
@@ -35,18 +35,19 @@
         }
 
         img {
-          max-height: 70px;
-          max-width: 70px;
+          max-height: 40px;
+          max-width: 40px;
 
-          @include page-width {
-            max-width: 60px;
-            max-height: 60px;
-          }
-
-          @include tablet-xl {
+          @include phone-l-min {
             max-width: 50px;
             max-height: 50px;
           }
+
+          @include page-width-min {
+            max-width: 70px;
+            max-height: 70px;
+          }
+
         }
       }
     }
