@@ -107,7 +107,7 @@
                             foreach ($images as $image){ ?>
 
                                 <li class="<?php echo slugify($gallery->post_title); ?>">
-                                    <a href="<?php echo $image['url']; ?>" rel="lightbox">
+                                    <a href="<?php echo $image['url']; ?>" data-lightbox="<?php echo slugify($gallery->post_title); ?>">
                                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                                     </a>
                                 </li>
@@ -152,17 +152,31 @@
 
                         <?php foreach($videos_array as $videos) {
 
-                        if (have_rows('movie', $videos->ID)): ?>
+                        if (have_rows('movie', $videos->ID)) { ?>
 
                             <?php while (have_rows('movie', $videos->ID)): the_row(); ?>
 
                                 <li class="<?php echo slugify($videos->post_title); ?>">
+
                                     <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" src="<?php the_sub_field('link'); ?>"></iframe>
+
                                 </li>
 
                             <?php endwhile; ?>
 
-                        <?php endif;
+                        <?php } else {
+
+                            $placeholder = get_field('placeholder', 'cpt_video');
+
+                            ?>
+
+                            <li class="<?php echo slugify($videos->post_title); ?>">
+
+                                <img class="placeholder" src="<?php echo $placeholder['url']; ?>" alt="<?php echo $placeholder['title']; ?>">
+
+                            </li>
+
+                        <?php } //end if
 
                         }//end foreach ?>
 
