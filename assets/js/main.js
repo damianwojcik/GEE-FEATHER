@@ -79,7 +79,7 @@ jQuery(document).ready(function () {
         'fadeDuration': 300
     });
 
-    btnHome.on('click touch', function (e) {
+    btnHome.on('click', function (e) {
 
         e.preventDefault();
 
@@ -279,8 +279,21 @@ jQuery(document).ready(function () {
                 rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
             }
 
+            if(body.hasClass('both-open')) {
+                leftPane.css('left', movedPos);
+                rightPane.css('right', movedPos);
+            }
+
+            if(body.hasClass('form-open')) {
+                form.css('top', 'auto');
+                form.insertAfter(leftWrap);
+                form.hide();
+                body.removeClass('form-open');
+            }
+
             form.css('width', panesW - 400 + 'px');
             form.css('left', leftPane.width() + 75);
+            form.css('top', 'auto');
 
             leftContent.css('width', '100%');
             rightContent.css('width', '100%');
@@ -294,23 +307,41 @@ jQuery(document).ready(function () {
             leftWrap.css('left', 210);
             rightWrap.css('right', 210);
 
-            if(body.hasClass('left-open')) {
-                leftPane.css('left', movedPos);
-            }
-
-            if(body.hasClass('right-open')) {
-                rightPane.css('right', movedPos);
-            }
-
-            if(body.hasClass('both-open')) {
-                leftPane.css('left', movedPos);
-                rightPane.css('right', movedPos);
-            }
-
         } else if(windW > 480 && windW <768) {
 
             moveDistance = 132;
             movedPos = 20;
+
+            if(body.hasClass('form-visible')) {
+                body.removeClass('form-visible');
+
+                form.fadeOut(300);
+                jQuery('.form .btn-submit').css('transform', 'scale(0)');
+
+                setTimeout(function() {
+                    form.insertAfter(leftWrap);
+                }, 300);
+            }
+
+            if(body.hasClass('left-mobile-open')) {
+                containerMobile.find('.pane__heading--blue').appendTo(leftPane).hide();
+                leftNav.appendTo(leftWrap);
+                leftNav.find('li').hide();
+                leftContent.appendTo(leftWrap).hide();
+                leftWrap.hide();
+                body.removeClass('left-mobile-open');
+                containerMobile.fadeOut(300);
+            }
+
+            if(body.hasClass('right-mobile-open')) {
+                containerMobile.find('.pane__heading--pink').appendTo(rightPane).hide();
+                rightNav.appendTo(rightWrap);
+                rightNav.find('li').hide();
+                rightContent.appendTo(rightWrap);
+                rightWrap.hide();
+                body.removeClass('right-mobile-open');
+                containerMobile.fadeOut(300);
+            }
 
             if(body.hasClass('left-open')){
                 leftPane.css('left', movedPos);
@@ -328,16 +359,19 @@ jQuery(document).ready(function () {
                 rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
             }
 
-            containerMobile.find('.pane__heading--blue').appendTo(leftPane);
-            leftNav.appendTo(leftWrap);
-            leftContent.appendTo(leftWrap);
-            containerMobile.find('.pane__heading--pink').appendTo(rightPane);
-            rightNav.appendTo(rightWrap);
-            rightContent.appendTo(rightWrap);
-            containerMobile.fadeOut(300);
+            if(body.hasClass('both-open')) {
+                leftPane.css('left', 'calc(50% - ' + moveDistance + 'px)');
+                rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
+                form.css('left', 'auto');
+                form.css('right', 'auto');
+                form.css('top', '455px');
+                form.css('width', '96%');
+                logoSign.fadeIn(300);
+            }
 
-            body.removeClass('left-mobile-open');
-            body.removeClass('right-mobile-open');
+            form.css('left', 'auto');
+            form.css('width', '96%');
+            form.css('top', 460);
 
             leftContent.css('width', '100%');
             rightContent.css('width', '100%');
@@ -345,78 +379,133 @@ jQuery(document).ready(function () {
             leftWrap.css('left', 190);
             rightWrap.css('right', 190);
 
-            if(body.hasClass('both-open')) {
-                leftPane.css('left', 'calc(50% - 186px)');
-                rightPane.css('right', 'calc(50% - 186px)');
-                form.css('left', 'auto');
-                form.css('right', 'auto');
-                form.css('top', '455px');
-                form.css('width', '94%');
-                logoSign.fadeIn(300);
-            }
-
             leftWrap.css('width', panesW - leftPane.width() - 20);
             rightWrap.css('width', panesW - rightPane.width() - 20);
 
         } else if(windW < 480) {
 
+            leftPane.css('left', 'auto');
+            rightPane.css('right', 'auto');
+            form.css('top', 120);
 
-            //leftPane.find('h2').fadeOut(300);
-            //rightPane.find('h2').fadeOut(300);
-            //
-            //logoSign.fadeIn(300);
-            //rightPane.fadeIn(300);
-            //
-            //body.removeClass('left-open');
-            //body.removeClass('right-open');
-            //
-            //leftPane.css('left', 'auto');
-            //rightPane.css('right', 'auto');
-            //
-            //setTimeout(function () {
-            //    leftContent.fadeOut(300);
-            //    rightContent.fadeOut(300);
-            //    form.fadeOut(300);
-            //    leftNav.find('li:nth-child(5)').fadeOut(100);
-            //    rightNav.find('li:nth-child(5)').fadeOut(100);
-            //}, 500);
-            //
-            //setTimeout(function () {
-            //    leftNav.find('li:nth-child(4)').fadeOut(200);
-            //    rightNav.find('li:nth-child(4)').fadeOut(200);
-            //}, 500);
-            //
-            //setTimeout(function () {
-            //    leftNav.find('li:nth-child(3)').fadeOut(200);
-            //    rightNav.find('li:nth-child(3)').fadeOut(200);
-            //}, 700);
-            //
-            //setTimeout(function () {
-            //    leftNav.find('li:nth-child(2)').fadeOut(200);
-            //    rightNav.find('li:nth-child(2)').fadeOut(200);
-            //}, 800);
-            //
-            //setTimeout(function () {
-            //    leftNav.find('li:first-child').fadeOut(200);
-            //    rightNav.find('li:first-child').fadeOut(200);
-            //}, 1100);
-            //
-            //setTimeout(function () {
-            //    leftPane.find('h2').fadeOut(400);
-            //    rightPane.find('h2').fadeOut(400);
-            //}, 1100);
-            //
-            //setTimeout(function () {
-            //    rightPane.fadeIn("slow");
-            //    leftPane.fadeIn("slow");
-            //    logoSign.fadeIn("slow");
-            //}, 1300);
-            //
-            //setTimeout(function () {
-            //    leftPane.css({"pointer-events": "auto"});
-            //    rightPane.css({"pointer-events": "auto"});
-            //
-            //}, 1500);
+            leftWrap.hide();
+            rightWrap.hide();
+
+            if(body.hasClass('form-open')) {
+                body.removeClass('form-open');
+                form.css('top', 120);
+                form.appendTo(formWrapper);
+                form.fadeOut(300);
+            }
+
+            if(body.hasClass('both-open')) {
+                form.appendTo(formWrapper);
+                form.css('top', 120);
+                form.fadeOut(300);
+                form.css('left', 'auto');
+                form.css('width', '100%');
+                body.removeClass('both-open');
+            }
+
+            if(body.hasClass('left-open')) {
+                body.removeClass('left-open');
+                leftContent.hide();
+                leftWrap.hide();
+                rightWrap.hide();
+                leftContent.css('width', '100%');
+                leftContent.css('left', 'auto');
+
+                leftPane.find('h2').fadeOut(300);
+
+                logoSign.fadeIn(300);
+                rightPane.fadeIn(300);
+
+                setTimeout(function () {
+                    leftContent.fadeOut(300);
+                    form.fadeOut(300);
+                    leftNav.find('li:nth-child(5)').fadeOut(100);
+                }, 500);
+
+                setTimeout(function () {
+                    leftNav.find('li:nth-child(4)').fadeOut(200);
+                }, 500);
+
+                setTimeout(function () {
+                    leftNav.find('li:nth-child(3)').fadeOut(200);
+                }, 700);
+
+                setTimeout(function () {
+                    leftNav.find('li:nth-child(2)').fadeOut(200);
+                }, 800);
+
+                setTimeout(function () {
+                    leftNav.find('li:first-child').fadeOut(200);
+                }, 1100);
+
+                setTimeout(function () {
+                    leftPane.find('h2').fadeOut(400);
+                }, 1100);
+
+                setTimeout(function () {
+                    rightPane.fadeIn("slow");
+                    logoSign.fadeIn("slow");
+                }, 1300);
+
+                setTimeout(function () {
+                    leftPane.css({"pointer-events": "auto"});
+                    rightPane.css({"pointer-events": "auto"});
+                }, 1500);
+            }
+
+            if(body.hasClass('right-open')) {
+                body.removeClass('right-open');
+                rightContent.hide();
+                rightContent.css('width', '100%');
+                rightContent.css('right', 'auto');
+                leftWrap.hide();
+                rightWrap.hide();
+
+                rightPane.find('h2').fadeOut(300);
+
+                logoSign.fadeIn(300);
+                leftPane.fadeIn(300);
+
+                setTimeout(function () {
+                    rightContent.fadeOut(300);
+                    form.fadeOut(300);
+                    rightNav.find('li:nth-child(5)').fadeOut(100);
+                }, 500);
+
+                setTimeout(function () {
+                    rightNav.find('li:nth-child(4)').fadeOut(200);
+                }, 500);
+
+                setTimeout(function () {
+                    rightNav.find('li:nth-child(3)').fadeOut(200);
+                }, 700);
+
+                setTimeout(function () {
+                    rightNav.find('li:nth-child(2)').fadeOut(200);
+                }, 800);
+
+                setTimeout(function () {
+                    rightNav.find('li:first-child').fadeOut(200);
+                }, 1100);
+
+                setTimeout(function () {
+                    rightPane.find('h2').fadeOut(400);
+                }, 1100);
+
+                setTimeout(function () {
+                    leftPane.fadeIn("slow");
+                    logoSign.fadeIn("slow");
+                }, 1300);
+
+                setTimeout(function () {
+                    leftPane.css({"pointer-events": "auto"});
+                    rightPane.css({"pointer-events": "auto"});
+                }, 1500);
+            }
 
         } else {
 
@@ -427,6 +516,9 @@ jQuery(document).ready(function () {
             leftContent.css('width', 655);
             rightContent.css('width', 510);
 
+            form.css('width', 600);
+            form.css('left', 390);
+
             if(body.hasClass('left-open')){
                 leftPane.css('left', movedPos);
             }
@@ -443,6 +535,11 @@ jQuery(document).ready(function () {
                 rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
             }
 
+            if(body.hasClass('both-open')) {
+                leftPane.css('left', movedPos);
+                rightPane.css('right', movedPos);
+            }
+
             leftWrap.css('left', 395);
             rightWrap.css('right', 395);
 
@@ -451,7 +548,7 @@ jQuery(document).ready(function () {
 
     function openPanes() {
 
-        leftPane.on('click touch', function () {
+        leftPane.on('click touchstart', function () {
 
             if(windW > 480) {
 
@@ -555,23 +652,25 @@ jQuery(document).ready(function () {
                 if(body.hasClass('left-mobile-open')) {
 
                     body.removeClass('left-mobile-open');
-                    containerMobile.find('.pane__heading').appendTo(leftPane);
+                    containerMobile.find('.pane__heading').appendTo(leftPane).hide();
                     leftNav.appendTo(leftWrap);
                     leftNav.find('li').hide();
                     leftContent.appendTo(leftWrap);
+                    leftWrap.hide();
                     containerMobile.fadeOut(300);
 
                 } else if(body.hasClass('right-mobile-open')) {
 
                     body.removeClass('right-mobile-open');
-                    containerMobile.find('.pane__heading').appendTo(rightPane);
+                    containerMobile.find('.pane__heading').appendTo(rightPane).hide();
                     rightNav.appendTo(rightWrap);
                     rightNav.find('li').hide();
                     rightContent.appendTo(rightWrap);
+                    rightWrap.hide();
 
                     body.addClass('left-mobile-open');
 
-                    leftPane.find('.pane__heading').appendTo(containerMobile);
+                    leftPane.find('.pane__heading').appendTo(containerMobile).show();
                     leftNav.appendTo(containerMobile);
                     leftNav.find('li').fadeIn(300).css("display","inline-block");
                     leftContent.appendTo(containerMobile);
@@ -583,11 +682,15 @@ jQuery(document).ready(function () {
                     body.addClass('left-mobile-open');
                     body.removeClass('right-mobile-open');
 
-                    leftPane.find('.pane__heading').appendTo(containerMobile);
+                    leftPane.find('.pane__heading').appendTo(containerMobile).show();
                     leftNav.appendTo(containerMobile);
                     leftNav.find('li').fadeIn(300).css("display","inline-block");
+                    leftWrap.hide();
+                    rightWrap.hide();
                     leftContent.appendTo(containerMobile);
                     leftContent.fadeIn(300);
+                    leftContent.css('width', '100%');
+                    leftContent.css('left', 'auto');
                     leftNav.fadeIn(300);
                     containerMobile.fadeIn(300);
                     leftContent.find('.inner-wrap').css('height', 'auto');
@@ -597,7 +700,7 @@ jQuery(document).ready(function () {
 
         });
 
-        rightPane.on('click touch', function () {
+        rightPane.on('click touchstart', function () {
 
             if(windW > 480) {
 
@@ -698,22 +801,24 @@ jQuery(document).ready(function () {
                 if(body.hasClass('right-mobile-open')) {
 
                     body.removeClass('right-mobile-open');
-                    containerMobile.find('.pane__heading').appendTo(rightPane);
+                    containerMobile.find('.pane__heading').appendTo(rightPane).hide();
                     rightNav.appendTo(rightWrap);
                     rightNav.find('li').hide();
                     rightContent.appendTo(rightWrap);
+                    rightWrap.hide();
                     containerMobile.fadeOut(300);
 
                 } else if (body.hasClass('left-mobile-open')) {
                     body.removeClass('left-mobile-open');
-                    containerMobile.find('.pane__heading').appendTo(leftPane);
+                    containerMobile.find('.pane__heading').appendTo(leftPane).hide();
                     leftNav.appendTo(leftWrap);
                     leftNav.find('li').hide();
                     leftContent.appendTo(leftWrap);
+                    leftWrap.hide();
 
                     body.addClass('right-mobile-open');
 
-                    rightPane.find('.pane__heading').appendTo(containerMobile);
+                    rightPane.find('.pane__heading').appendTo(containerMobile).show();
                     rightNav.appendTo(containerMobile);
                     rightNav.find('li').fadeIn(300).css("display","inline-block");
                     rightContent.appendTo(containerMobile);
@@ -726,12 +831,16 @@ jQuery(document).ready(function () {
                     body.addClass('right-mobile-open');
                     body.removeClass('left-mobile-open');
 
-                    rightPane.find('.pane__heading').appendTo(containerMobile);
+                    rightPane.find('.pane__heading').appendTo(containerMobile).show();
                     rightNav.appendTo(containerMobile);
                     rightNav.find('li').fadeIn(300).css("display","inline-block");
-                    leftContent.fadeIn(300);
-                    leftNav.fadeIn(300);
+                    rightWrap.hide();
+                    leftWrap.hide();
                     rightContent.appendTo(containerMobile);
+                    rightContent.fadeIn(300);
+                    rightContent.css('width', '100%');
+                    rightContent.css('left', 'auto');
+                    rightNav.fadeIn(300);
                     containerMobile.fadeIn(300);
                     rightContent.find('.inner-wrap').css('height', 'auto');
 
@@ -740,7 +849,7 @@ jQuery(document).ready(function () {
 
         });
 
-        btn.on('click touch', function (event) {
+        btn.on('click', function (event) {
 
             jQuery(this).css({ "pointer-events":"none"});
             event.preventDefault();
@@ -870,6 +979,8 @@ jQuery(document).ready(function () {
 
                 } else if (windW > 480 && windW < 780) {
 
+                    body.addClass('form-open');
+
                     setTimeout(function () {
                         form.fadeIn(300);
                         jQuery('.form .btn-submit').css('transform', 'scale(1)');
@@ -923,7 +1034,7 @@ jQuery(document).ready(function () {
 
     }
 
-    btnCloseForm.on('click touch', function (e) {
+    btnCloseForm.on('click', function (e) {
 
         e.preventDefault();
         body.removeClass('form-visible');
