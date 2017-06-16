@@ -548,7 +548,7 @@ jQuery(document).ready(function () {
 
     function openPanes() {
 
-        leftPane.on('click touchstart', function () {
+        leftPane.on('click', function () {
 
             if(windW > 480) {
 
@@ -700,7 +700,7 @@ jQuery(document).ready(function () {
 
         });
 
-        rightPane.on('click touchstart', function () {
+        rightPane.on('click', function () {
 
             if(windW > 480) {
 

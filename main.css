@@ -772,7 +772,18 @@ textarea {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  top: 100px; }
+  top: 100px;
+  font-size: 45px; }
+  @media (max-width: 1280px) {
+    .nf-response-msg {
+      font-size: 38px; } }
+  @media (max-width: 768px) {
+    .nf-response-msg {
+      font-size: 30px; } }
+  @media (max-width: 480px) {
+    .nf-response-msg {
+      top: 50px;
+      font-size: 22px; } }
 
 /* END NINJA-FORMS */
 ul {
