@@ -108,7 +108,7 @@
 
                                 <li class="<?php echo slugify($gallery->post_title); ?>">
                                     <a href="<?php echo $image['url']; ?>" data-lightbox="<?php echo slugify($gallery->post_title); ?>">
-                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                        <img class="lazy" data-original="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="2200" height="1100">
                                     </a>
                                 </li>
 
@@ -158,7 +158,7 @@
 
                                 <li class="<?php echo slugify($videos->post_title); ?>">
 
-                                    <iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" src="<?php the_sub_field('link'); ?>"></iframe>
+                                    <div class="youtube-player" data-id="<?php the_sub_field('yt_id'); ?>"></div>
 
                                 </li>
 
