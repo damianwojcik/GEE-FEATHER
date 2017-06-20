@@ -108,7 +108,7 @@
 
                                 <li class="<?php echo slugify($gallery->post_title); ?>">
                                     <a href="<?php echo $image['url']; ?>" data-lightbox="<?php echo slugify($gallery->post_title); ?>">
-                                        <img class="lazy" data-original="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="2200" height="1100">
+                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                                     </a>
                                 </li>
 
