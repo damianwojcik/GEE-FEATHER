@@ -14,6 +14,13 @@ function wpgood_nf_display_enqueue_scripts(){
 }
 add_action( 'nf_display_enqueue_scripts', 'wpgood_nf_display_enqueue_scripts');
 
+// REMOVE WP EMOJI
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
 
 function enqueue_styles() {
     // load styles
@@ -25,6 +32,5 @@ function enqueue_styles() {
 function enqueue_scripts() {
     // load scripts
     wp_enqueue_script("jquery");
-    wp_enqueue_script( 'google_map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAXtC0AkDX0KXNA2GHyCQbmZZzILneLa-s' , '', NULL);
-    wp_enqueue_script( 'site_scripts', THEME_URL . '/assets/js/main.js', '', NULL);
+    wp_enqueue_script( 'site_scripts', THEME_URL . '/assets/js/main.min.js', '', NULL);
 }

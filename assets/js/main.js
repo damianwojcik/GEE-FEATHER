@@ -46,7 +46,8 @@ jQuery(document).ready(function () {
         containerMobile = jQuery('.container-mobile'),
         formWrapper = jQuery('.form-wrapper'),
         btnCloseForm = jQuery('.form-wrapper .btn-close'),
-        btnHome = jQuery('.js-home');
+        btnHome = jQuery('.js-home'),
+        copy = jQuery('.row-copy');
 
     $wind.on('resize', function(){
         windW = $wind.width(),
@@ -70,6 +71,7 @@ jQuery(document).ready(function () {
         body.removeClass('both-open');
         body.removeClass('left-open');
         body.removeClass('right-open');
+        copy.show();
 
         setTimeout(function () {
             leftContent.fadeOut(300);
@@ -293,6 +295,7 @@ jQuery(document).ready(function () {
                     leftPane.find('h2').fadeIn(600);
                     leftPane.css('left', movedPos);
                     logoSign.fadeOut(100);
+                    copy.hide();
 
                     setTimeout(function () {
                         leftWrap.fadeIn(100);

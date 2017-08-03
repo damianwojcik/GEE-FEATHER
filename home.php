@@ -20,6 +20,8 @@
     $instagram_link = get_field('link_instagram', 'option');
     $youtube_link = get_field('link_youtube', 'option');
 
+
+
 ?>
 
     <!-- Preloader Start -->
@@ -33,31 +35,28 @@
         <nav class="primary-nav">
 
             <ul>
-                <li>
-                    <a href="#" class="js-home">
-                        <img src="<?= THEME_URL; ?>/assets/img/snapchat.png" alt="Home">
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $facebook_link; ?>" target="_blank">
-                        <img src="<?= THEME_URL; ?>/assets/img/fb.png" alt="Facebook">
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $instagram_link; ?>" target="_blank">
-                        <img src="<?= THEME_URL; ?>/assets/img/instagram.png" alt="Instagram">
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $youtube_link; ?>" target="_blank">
-                        <img class="lazyload" src="<?= THEME_URL; ?>/assets/img/yt.png" alt="YouTube">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="js-form">
-                        <img class="lazyload" src="<?= THEME_URL; ?>/assets/img/mail.png" data-src="<?= THEME_URL; ?>/assets/img/mail.png" alt="Contact">
-                    </a>
-                </li>
+
+                <?php if( have_rows('navigation_element', 'option') ): ?>
+
+                    <ul>
+
+                        <?php while( have_rows('navigation_element', 'option') ): the_row();
+                                $icon = get_sub_field('icon');
+                                $link = get_sub_field('link');
+                                $jsClass = get_sub_field('js-class');
+                            ?>
+
+                            <li>
+                                <a href="<?php echo $link; ?>" class="<?php echo $jsClass; ?>">
+                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                </a>
+                            </li>
+
+                        <?php endwhile; ?>
+
+                    </ul>
+
+                <?php endif; ?>
 
             </ul>
 
@@ -169,6 +168,12 @@
 
         </div><!-- /.row-logo -->
 
+        <div class="row row-copy" style="text-align: center; margin-top: 30px;">
+
+            <p class="copy"><a href="http://white-pr.pl/" target="_blank">created by White-PR</a></p>
+
+        </div><!-- /.row-copy -->
+
     </div><!-- /.container -->
 
     <div class="container container-mobile">
@@ -178,11 +183,13 @@
     </div><!-- /.container-mobile -->
 
     <div class="form-wrapper">
+        
         <div class="container">
 
             <button class="btn btn-close" type="button">&times;</button>
 
         </div>
-    </div>
+        
+    </div><!-- /.form-wrapper -->
 
 <?php get_footer(); ?>
