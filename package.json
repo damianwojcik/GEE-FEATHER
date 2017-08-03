@@ -19,6 +19,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "jquery-lazyload": "^1.9.7"
   }
 }
