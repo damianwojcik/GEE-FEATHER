@@ -59,11 +59,7 @@
                             ?>
 
                             <li>
-<<<<<<< HEAD
-                                <a href="<?php echo $link; ?>" class="<?php echo $jsClass; ?>">
-=======
                                 <a href="<?php echo $link; ?>" class="<?php echo $jsClass; ?>" target="_blank">
->>>>>>> 0b63729a3bffa9a29d028409fce35f4ae7c16bc8
                                     <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                                 </a>
                             </li>
@@ -198,12 +194,6 @@
 
         </div><!-- /.row-logo -->
 
-        <div class="row row-copy" style="text-align: center; margin-top: 30px;">
-
-            <p class="copy"><a href="http://white-pr.pl/" target="_blank">created by White-PR</a></p>
-
-        </div><!-- /.row-copy -->
-
     </div><!-- /.container -->
 
     <div class="container container-mobile">
@@ -213,13 +203,11 @@
     </div><!-- /.container-mobile -->
 
     <div class="form-wrapper">
-        
         <div class="container">
 
             <button class="btn btn-close" type="button">&times;</button>
 
         </div>
-        
-    </div><!-- /.form-wrapper -->
+    </div>
 
 <?php get_footer(); ?>

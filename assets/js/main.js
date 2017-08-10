@@ -58,11 +58,7 @@ jQuery(document).ready(function () {
         formWrapper = jQuery('.form-wrapper'),
         btnCloseForm = jQuery('.form-wrapper .btn-close'),
         btnHome = jQuery('.js-home'),
-<<<<<<< HEAD
-        copy = jQuery('.row-copy');
-=======
         $imgs = jQuery('img.lazy');
->>>>>>> 0b63729a3bffa9a29d028409fce35f4ae7c16bc8
 
     $wind.on('resize', function(){
         windW = $wind.width(),
@@ -118,58 +114,6 @@ jQuery(document).ready(function () {
 
         e.preventDefault();
 
-<<<<<<< HEAD
-        body.removeClass('both-open');
-        body.removeClass('left-open');
-        body.removeClass('right-open');
-        copy.show();
-
-        setTimeout(function () {
-            leftContent.fadeOut(300);
-            rightContent.fadeOut(300);
-            form.fadeOut(300);
-            leftNav.find('li:nth-child(5)').fadeOut(100);
-            rightNav.find('li:nth-child(5)').fadeOut(100);
-        }, 500);
-
-        setTimeout(function () {
-            leftNav.find('li:nth-child(4)').fadeOut(200);
-            rightNav.find('li:nth-child(4)').fadeOut(200);
-        }, 500);
-
-        setTimeout(function () {
-            leftNav.find('li:nth-child(3)').fadeOut(200);
-            rightNav.find('li:nth-child(3)').fadeOut(200);
-        }, 700);
-
-        setTimeout(function () {
-            leftNav.find('li:nth-child(2)').fadeOut(200);
-            rightNav.find('li:nth-child(2)').fadeOut(200);
-        }, 800);
-
-        setTimeout(function () {
-            leftNav.find('li:first-child').fadeOut(200);
-            rightNav.find('li:first-child').fadeOut(200);
-        }, 1100);
-
-        setTimeout(function () {
-            leftPane.find('h2').fadeOut(400);
-            rightPane.find('h2').fadeOut(400);
-        }, 1100);
-
-        setTimeout(function () {
-            leftPane.css('left', 'calc(50% - ' + moveDistance + 'px)');
-            rightPane.css('right', 'calc(50% - ' + moveDistance + 'px)');
-            rightPane.fadeIn("slow");
-            leftPane.fadeIn("slow");
-            logoSign.fadeIn("slow");
-        }, 1300);
-
-        setTimeout(function () {
-            leftPane.css({"pointer-events": "auto"});
-            rightPane.css({"pointer-events": "auto"});
-        }, 1500);
-=======
         if(windW < 480) {
 
             body.removeClass('left-mobile-open');
@@ -239,7 +183,6 @@ jQuery(document).ready(function () {
             }, 1500);
 
         }
->>>>>>> 0b63729a3bffa9a29d028409fce35f4ae7c16bc8
 
     });
 
@@ -647,13 +590,8 @@ jQuery(document).ready(function () {
                     body.addClass('left-open');
                     leftPane.find('h2').fadeIn(600);
                     leftPane.css('left', movedPos);
-<<<<<<< HEAD
-                    logoSign.fadeOut(100);
-                    copy.hide();
-=======
                     logoSign.fadeOut(300);
                     rightPane.fadeOut(300);
->>>>>>> 0b63729a3bffa9a29d028409fce35f4ae7c16bc8
 
                     setTimeout(function () {
                         leftWrap.fadeIn(100);
