@@ -202,6 +202,8 @@
 
     </div><!-- /.container-mobile -->
 
+    <p class="copy" style="text-align: center;">Copyright &copy; 2017 <a href="http://dwojcik.dev/" target="_blank" rel="noopener noreferrer">dwojcik.dev</a></p>
+
     <div class="form-wrapper">
         <div class="container">
 
